@@ -10,28 +10,29 @@ html {
 }
 
 :root {
-  /* AgencyOS brand */
-  --aos:       #6366f1;
-  --aos-2:     #818cf8;
-  --aos-dim:   rgba(99,102,241,0.12);
-  --cyan:      #06b6d4;
-  --cyan-dim:  rgba(6,182,212,0.10);
-  --emerald:   #10b981;
+  /* CampaignForge brand — deep purple + fuchsia */
+  --forge:     #d946ef;
+  --forge-2:   #e879f9;
+  --forge-dim: rgba(217,70,239,0.12);
+  --violet:    #7c3aed;
+  --violet-dim: rgba(124,58,237,0.10);
 
-  /* Surfaces */
-  --bg:        #050509;
-  --bg-raised: #0c0c14;
-  --bg-card:   rgba(12,12,20,0.60);
+  /* Surfaces — deep purple-black */
+  --bg:        #0f0617;
+  --bg-raised: #180b22;
+  --bg-card:   rgba(24,11,34,0.65);
+  --bg-base:   #0f0617;
 
   /* Text */
-  --ink-1: #eef0ff;
-  --ink-2: #9a9cc4;
-  --ink-3: #5a5c7a;
-  --ink-4: #35364e;
+  --ink-1: #f5e6ff;
+  --ink-2: #c4a8d8;
+  --ink-3: #7a5e90;
+  --ink-4: #3d2a50;
 
   /* Borders */
-  --border-s: rgba(255,255,255,0.06);
-  --border-m: rgba(255,255,255,0.10);
+  --border-s: rgba(217,70,239,0.08);
+  --border-m: rgba(217,70,239,0.14);
+  --border-d: rgba(217,70,239,0.10);
 
   /* Radius */
   --r-sm: 8px;
@@ -52,25 +53,25 @@ body {
 }
 
 /* ── Mesh background ── */
-.aos-mesh {
+.forge-grid {
   position: fixed;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(6,182,212,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217,70,239,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 85%, rgba(124,58,237,0.12) 0%, transparent 55%),
     var(--bg);
   pointer-events: none;
 }
-.aos-mesh::after {
+.forge-grid::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(99,102,241,0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(217,70,239,0.06) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Animated orbs */
+/* Animated orbs — fuchsia/violet */
 .orb {
   position: fixed;
   border-radius: 50%;
@@ -79,9 +80,9 @@ body {
   animation: orbDrift 18s ease-in-out infinite alternate;
   z-index: 0;
 }
-.orb-1 { width: 520px; height: 520px; background: rgba(99,102,241,0.18); top: -120px; left: -100px; animation-duration: 20s; }
-.orb-2 { width: 380px; height: 380px; background: rgba(6,182,212,0.14); bottom: -80px; right: -80px; animation-duration: 16s; animation-direction: alternate-reverse; }
-.orb-3 { width: 280px; height: 280px; background: rgba(16,185,129,0.10); top: 40%; left: 60%; animation-duration: 24s; }
+.orb-forge-1 { width: 520px; height: 520px; background: rgba(217,70,239,0.16); top: -120px; left: -100px; animation-duration: 20s; }
+.orb-forge-2 { width: 380px; height: 380px; background: rgba(124,58,237,0.14); bottom: -80px; right: -80px; animation-duration: 16s; animation-direction: alternate-reverse; }
+.orb-forge-3 { width: 280px; height: 280px; background: rgba(217,70,239,0.08); top: 40%; left: 60%; animation-duration: 24s; }
 
 @keyframes orbDrift {
   from { transform: translate(0, 0) scale(1); }
@@ -97,22 +98,22 @@ body {
   border-radius: var(--r-lg);
 }
 
-.card-aos {
-  background: rgba(12,12,20,0.55);
+.card-forge {
+  background: rgba(24,11,34,0.60);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--border-s);
   border-radius: var(--r-lg);
   transition: border-color 220ms, box-shadow 220ms;
 }
-.card-aos:hover {
-  border-color: rgba(99,102,241,0.25);
-  box-shadow: 0 0 0 1px rgba(99,102,241,0.10), 0 8px 32px rgba(0,0,0,0.4);
+.card-forge:hover {
+  border-color: rgba(217,70,239,0.28);
+  box-shadow: 0 0 0 1px rgba(217,70,239,0.10), 0 8px 32px rgba(0,0,0,0.5);
 }
 
 /* ── Inputs ── */
 .input {
-  background: rgba(12,12,22,0.70);
+  background: rgba(24,11,34,0.80);
   border: 1px solid var(--border-m);
   border-radius: var(--r-md);
   color: var(--ink-1);
@@ -125,17 +126,17 @@ body {
 }
 .input::placeholder { color: var(--ink-3); }
 .input:focus {
-  border-color: var(--aos);
-  box-shadow: 0 0 0 3px var(--aos-dim);
+  border-color: var(--forge);
+  box-shadow: 0 0 0 3px var(--forge-dim);
 }
 
 /* ── Primary button ── */
-.btn-aos {
+.btn-forge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #c026d3 0%, #d946ef 50%, #e879f9 100%);
   color: #fff;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
@@ -144,23 +145,24 @@ body {
   border: none;
   border-radius: var(--r-md);
   padding: 14px 28px;
+  width: 100%;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: box-shadow 220ms, transform 120ms;
 }
-.btn-aos::before {
+.btn-forge::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.14) 50%, transparent 100%);
   transform: translateX(-100%);
   transition: transform 500ms;
 }
-.btn-aos:hover::before { transform: translateX(100%); }
-.btn-aos:hover { box-shadow: 0 0 28px rgba(99,102,241,0.45); transform: translateY(-1px); }
-.btn-aos:active { transform: translateY(0); }
-.btn-aos:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-forge:hover::before { transform: translateX(100%); }
+.btn-forge:hover { box-shadow: 0 0 28px rgba(217,70,239,0.55); transform: translateY(-1px); }
+.btn-forge:active { transform: scale(0.97); }
+.btn-forge:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 /* ── Secondary / ghost ── */
 .btn-ghost {
@@ -176,31 +178,21 @@ body {
   cursor: pointer;
   transition: border-color 180ms, color 180ms;
 }
-.btn-ghost:hover { border-color: var(--aos); color: var(--ink-1); }
+.btn-ghost:hover { border-color: var(--forge); color: var(--ink-1); }
 
 /* ── Badge ── */
-.badge-aos {
+.badge-forge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--aos-dim);
-  border: 1px solid rgba(99,102,241,0.22);
+  background: var(--forge-dim);
+  border: 1px solid rgba(217,70,239,0.22);
   border-radius: 100px;
-  color: var(--aos-2);
+  color: var(--forge-2);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   padding: 5px 12px;
-}
-.badge-cyan {
-  background: var(--cyan-dim);
-  border-color: rgba(6,182,212,0.22);
-  color: var(--cyan);
-}
-.badge-green {
-  background: rgba(16,185,129,0.10);
-  border-color: rgba(16,185,129,0.22);
-  color: var(--emerald);
 }
 
 /* ── Nav ── */
@@ -210,7 +202,7 @@ body {
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  background: linear-gradient(135deg, #c026d3, #7c3aed);
   border-radius: 8px;
 }
 .nav-link {
@@ -222,29 +214,24 @@ body {
 }
 .nav-link:hover { color: var(--ink-1); }
 
-/* ── Output tab styles ── */
-.tab-btn {
-  padding: 8px 16px;
-  border-radius: 8px;
+/* ── Tone pills ── */
+.tone-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
-  border: 1px solid transparent;
+  border: 1px solid var(--border-s);
   cursor: pointer;
-  transition: all 180ms;
-  background: transparent;
+  background: rgba(255,255,255,0.03);
   color: var(--ink-3);
+  transition: border-color 150ms, background 150ms, color 150ms;
 }
-.tab-btn.active {
-  background: var(--aos-dim);
-  border-color: rgba(99,102,241,0.25);
-  color: var(--aos-2);
+.tone-pill.active {
+  background: var(--forge-dim);
+  border-color: rgba(217,70,239,0.4);
+  color: var(--forge);
 }
-.tab-btn:hover:not(.active) { color: var(--ink-2); background: var(--bg-raised); }
-
-/* ── Ticker ── */
-.ticker-wrap { overflow: hidden; white-space: nowrap; }
-.ticker-inner { display: inline-flex; gap: 48px; animation: ticker 28s linear infinite; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tone-pill:hover:not(.active) { color: var(--ink-2); border-color: var(--border-m); }
 
 /* ── Animations ── */
 @keyframes fadeUp {
@@ -258,9 +245,13 @@ body {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.3); }
+}
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(99,102,241,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217,70,239,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(217,70,239,0); }
 }
 
 .animate-fade-up { animation: fadeUp 0.6s ease both; }
@@ -287,5 +278,5 @@ body {
 
 /* ── Responsive base ── */
 @media (max-width: 768px) {
-  .orb-1, .orb-2, .orb-3 { width: 200px; height: 200px; }
+  .orb-forge-1, .orb-forge-2, .orb-forge-3 { width: 200px; height: 200px; }
 }

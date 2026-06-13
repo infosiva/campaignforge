@@ -69,131 +69,86 @@ export interface Category {
 // ════════════════════════════════════════════════════════════
 
 const config: VerticalConfig = {
-  // ── Elder Care ───────────────────────────────────────────
-  id:         'eldercare',
-  name:       'ElderCare+',
-  tagline:    'Trusted carers for your loved ones — found in minutes, not days',
-  domain:     'eldercare.plus',
-  themeColor: 'violet',
+  // ── CampaignForge — AI Multi-Channel Campaign Builder ────
+  id:         'campaignforge',
+  name:       'CampaignForge',
+  tagline:    'Build campaigns that run on AI — email, social, ads in one flow',
+  domain:     'campaignforge.app',
+  themeColor: 'fuchsia',
 
-  providerLabel:  'Carer',
-  providerPlural: 'Carers',
-  consumerLabel:  'Family',
+  providerLabel:  'Campaign',
+  providerPlural: 'Campaigns',
+  consumerLabel:  'Marketer',
 
   categories: [
-    { id: 'companionship',  label: 'Companionship',       icon: '🤝', desc: 'Social visits, conversation, light outings' },
-    { id: 'personal-care',  label: 'Personal Care',       icon: '🛁', desc: 'Bathing, dressing, hygiene assistance' },
-    { id: 'dementia',       label: 'Dementia Support',    icon: '🧠', desc: 'Specialist memory care at home' },
-    { id: 'medication',     label: 'Medication Prompts',  icon: '💊', desc: 'Reminders, administration support' },
-    { id: 'mobility',       label: 'Mobility Assistance', icon: '🦽', desc: 'Transfers, exercise, fall prevention' },
-    { id: 'night-care',     label: 'Overnight / Live-in', icon: '🌙', desc: '24hr or night-shift live-in care' },
-    { id: 'post-hospital',  label: 'Post-Hospital Care',  icon: '🏥', desc: 'Recovery support after discharge' },
-    { id: 'end-of-life',    label: 'Palliative Support',  icon: '🕊️', desc: 'Compassionate end-of-life companionship' },
+    { id: 'email',    label: 'Email Sequence',   icon: '📧', desc: '5-email nurture sequence with subject lines' },
+    { id: 'social',   label: 'Social Ads',       icon: '📱', desc: 'Meta/Instagram ad copy and headlines' },
+    { id: 'google',   label: 'Google Ads',       icon: '🔍', desc: 'Search ad copy with extensions' },
+    { id: 'landing',  label: 'Landing Page',     icon: '📄', desc: 'Full landing page copy and CTA hierarchy' },
+    { id: 'sms',      label: 'SMS Campaign',     icon: '💬', desc: 'Short-form SMS sequences under 160 chars' },
+    { id: 'linkedin', label: 'LinkedIn Posts',   icon: '💼', desc: 'Thought-leadership posts for B2B reach' },
+    { id: 'podcast',  label: 'Podcast Script',   icon: '🎙️', desc: 'Hook + outline + full episode script' },
+    { id: 'retarget', label: 'Retargeting Ads',  icon: '🎯', desc: 'Re-engagement copy for warm audiences' },
   ],
 
-  pricingModel:        'hourly',
-  bookingFlow:         'consult_first',
-  minPrice:            15,
-  maxPrice:            40,
-  sessionMinutes:      60,
-  platformFeePercent:  12,
+  pricingModel:        'fixed',
+  bookingFlow:         'instant',
+  minPrice:            0,
+  maxPrice:            49,
+  sessionMinutes:      1,
+  platformFeePercent:  0,
 
-  aiSystemPrompt: `You are a compassionate care coordinator for ElderCare+.
-Help families find the right carer for their elderly relative.
-Ask about: the person's age, main challenges, preferred schedule,
-personality (quiet/social), whether they have dementia or mobility issues,
-and whether family can be present during visits.
-Never give medical advice. Always recommend consulting a GP.
-Be warm, empathetic, and reassuring — families are often stressed.`,
+  aiSystemPrompt: `You are CampaignForge AI — a marketing campaign specialist.
+Help marketers build multi-channel campaigns. You can help with:
+- Choosing the right channels for their audience and goal
+- Writing email subject lines, ad copy, landing page headlines
+- Suggesting campaign structure and timing
+- Reviewing copy for clarity and conversion potential
+Never make up statistics. Never claim guaranteed results.
+Be specific, direct, and marketing-focused.`,
 
   aiMatchHints: [
-    'dementia certification', 'moving and handling trained',
-    'first aid', 'palliative care experience', 'live-in experience',
-    'driving licence', 'same-gender preference',
+    'email marketing', 'Facebook ads', 'Google Ads', 'landing page CRO',
+    'B2B LinkedIn', 'retargeting', 'SMS marketing', 'campaign strategy',
   ],
 
   features: {
-    backgroundCheck:  true,
-    portfolioPhotos:  true,
-    videoIntro:       true,
-    instantBook:      false,
+    backgroundCheck:  false,
+    portfolioPhotos:  false,
+    videoIntro:       false,
+    instantBook:      true,
     recurringBook:    true,
-    homeVisit:        true,
-    remoteSession:    false,
+    homeVisit:        false,
+    remoteSession:    true,
     groupSession:     false,
-    insuranceBadge:   true,
+    insuranceBadge:   false,
     aiDiagnosis:      false,
-    careJournal:      true,
+    careJournal:      false,
   },
 
-  metaTitle:       'ElderCare+ — Find Trusted Home Carers Near You',
-  metaDescription: 'AI-matched home carers for older adults. Background-checked, insured, reviewed by real families. Book a free consultation today.',
-  keywords:        ['home carer', 'elder care', 'elderly care at home', 'dementia carer', 'live-in carer'],
+  metaTitle:       'CampaignForge — AI Multi-Channel Campaign Builder',
+  metaDescription: 'Build full marketing campaigns in minutes. AI writes email sequences, social ads, and landing page copy across every channel. Free to start.',
+  keywords:        ['AI campaign builder', 'multi-channel marketing', 'email marketing AI', 'social ads generator', 'marketing automation'],
 }
 
 export default config
 
-export const ROOM_TYPES = [
-  { id: 'living-room',  icon: '🛋️', label: 'Living Room' },
-  { id: 'bedroom',      icon: '🛏️', label: 'Bedroom' },
-  { id: 'kitchen',      icon: '🍳', label: 'Kitchen' },
-  { id: 'bathroom',     icon: '🚿', label: 'Bathroom' },
-  { id: 'home-office',  icon: '💻', label: 'Home Office' },
-  { id: 'dining-room',  icon: '🍽️', label: 'Dining Room' },
-  { id: 'garden',       icon: '🌿', label: 'Garden' },
-  { id: 'hallway',      icon: '🚪', label: 'Hallway' },
-]
-
-export const DESIGN_STYLES = [
-  { id: 'modern',        emoji: '⬜', label: 'Modern' },
-  { id: 'scandinavian',  emoji: '🪵', label: 'Scandinavian' },
-  { id: 'industrial',    emoji: '🔩', label: 'Industrial' },
-  { id: 'bohemian',      emoji: '🌸', label: 'Bohemian' },
-  { id: 'minimalist',    emoji: '◻️', label: 'Minimalist' },
-  { id: 'traditional',   emoji: '🏺', label: 'Traditional' },
-  { id: 'art-deco',      emoji: '✨', label: 'Art Deco' },
-  { id: 'coastal',       emoji: '🌊', label: 'Coastal' },
-]
-
 // ════════════════════════════════════════════════════════════
-// OTHER VERTICALS (copy + swap the export above)
+// CAMPAIGN CHANNEL PRESETS (used by campaign builder UI)
 // ════════════════════════════════════════════════════════════
 
-export const PRESETS: Record<string, Partial<VerticalConfig>> = {
-  mechanics: {
-    id: 'mechanics', name: 'MechFix', themeColor: 'orange',
-    tagline: 'Find a trusted local mechanic — AI pre-diagnosis included',
-    providerLabel: 'Mechanic', providerPlural: 'Mechanics', consumerLabel: 'Driver',
-    pricingModel: 'quote', bookingFlow: 'quote_first',
-    features: { backgroundCheck:false, portfolioPhotos:true, videoIntro:false,
-      instantBook:false, recurringBook:false, homeVisit:true, remoteSession:false,
-      groupSession:false, insuranceBadge:true, aiDiagnosis:true, careJournal:false },
-  },
-  music: {
-    id: 'music', name: 'TuneUp', themeColor: 'indigo',
-    tagline: 'Learn any instrument from verified local tutors',
-    providerLabel: 'Tutor', providerPlural: 'Tutors', consumerLabel: 'Student',
-    pricingModel: 'session', bookingFlow: 'instant',
-    features: { backgroundCheck:true, portfolioPhotos:true, videoIntro:true,
-      instantBook:true, recurringBook:true, homeVisit:true, remoteSession:true,
-      groupSession:true, insuranceBadge:false, aiDiagnosis:false, careJournal:false },
-  },
-  wedding: {
-    id: 'wedding', name: 'WedFlow', themeColor: 'rose',
-    tagline: 'Every wedding vendor you need — curated, reviewed, instantly bookable',
-    providerLabel: 'Vendor', providerPlural: 'Vendors', consumerLabel: 'Couple',
-    pricingModel: 'fixed', bookingFlow: 'quote_first',
-    features: { backgroundCheck:false, portfolioPhotos:true, videoIntro:true,
-      instantBook:false, recurringBook:false, homeVisit:false, remoteSession:false,
-      groupSession:false, insuranceBadge:false, aiDiagnosis:false, careJournal:false },
-  },
-  nutrition: {
-    id: 'nutrition', name: 'NutriCoach', themeColor: 'green',
-    tagline: 'Personalised nutrition coaching — AI-matched to your goals',
-    providerLabel: 'Nutritionist', providerPlural: 'Nutritionists', consumerLabel: 'Client',
-    pricingModel: 'session', bookingFlow: 'consult_first',
-    features: { backgroundCheck:false, portfolioPhotos:false, videoIntro:true,
-      instantBook:false, recurringBook:true, homeVisit:false, remoteSession:true,
-      groupSession:true, insuranceBadge:true, aiDiagnosis:false, careJournal:true },
-  },
-}
+export const CAMPAIGN_CHANNELS = [
+  { id: 'email',    label: 'Email',        icon: '📧', desc: '5-email nurture sequence' },
+  { id: 'social',   label: 'Social Ads',   icon: '📱', desc: 'Meta / Instagram copy' },
+  { id: 'google',   label: 'Google Ads',   icon: '🔍', desc: 'Search ad copy' },
+  { id: 'landing',  label: 'Landing Page', icon: '📄', desc: 'Full page copy' },
+  { id: 'sms',      label: 'SMS',          icon: '💬', desc: 'Short-form sequences' },
+  { id: 'linkedin', label: 'LinkedIn',     icon: '💼', desc: 'B2B thought-leadership' },
+]
+
+export const CAMPAIGN_TONES = [
+  { id: 'professional',  label: 'Professional' },
+  { id: 'friendly',      label: 'Friendly' },
+  { id: 'bold',          label: 'Bold' },
+  { id: 'inspirational', label: 'Inspirational' },
+]

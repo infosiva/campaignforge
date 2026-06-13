@@ -60,9 +60,9 @@ function FloatingChat() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         style={{ position: 'fixed', bottom: 24, right: 24, width: 52, height: 52, borderRadius: '50%',
-          background: 'linear-gradient(135deg,#f97316,#ea580c)', border: 'none', cursor: 'pointer',
+          background: 'linear-gradient(135deg,#c026d3,#d946ef)', border: 'none', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: '0 4px 20px rgba(249,115,22,0.5)', zIndex: 1000, fontSize: 20 }}
+          boxShadow: '0 4px 20px rgba(217,70,239,0.5)', zIndex: 1000, fontSize: 20 }}
       >
         {open ? '✕' : '🔥'}
       </motion.button>
@@ -74,30 +74,30 @@ function FloatingChat() {
             exit={{ opacity: 0, y: 10, scale: 0.97 }}
             transition={{ duration: 0.2 }}
             style={{ position: 'fixed', bottom: 88, right: 24, width: 320, height: 420,
-              background: 'var(--bg-base)', border: '1px solid rgba(249,115,22,0.3)',
+              background: 'var(--bg-base)', border: '1px solid rgba(217,70,239,0.3)',
               borderRadius: 16, display: 'flex', flexDirection: 'column', zIndex: 1000,
               overflow: 'hidden', backdropFilter: 'blur(20px)' }}
           >
-            <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(249,115,22,0.2)', fontSize: 13, fontWeight: 700, color: 'var(--ink-1)' }}>
+            <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(217,70,239,0.2)', fontSize: 13, fontWeight: 700, color: 'var(--ink-1)' }}>
               CampaignForge AI
             </div>
             <div style={{ flex: 1, overflowY: 'auto', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {msgs.map((m, i) => (
                 <div key={i} style={{
                   alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start',
-                  background: m.role === 'user' ? 'rgba(249,115,22,0.2)' : 'rgba(255,255,255,0.05)',
+                  background: m.role === 'user' ? 'rgba(217,70,239,0.2)' : 'rgba(255,255,255,0.05)',
                   padding: '8px 12px', borderRadius: 10, fontSize: 12, color: 'var(--ink-2)', maxWidth: '85%',
                 }}>{m.text}</div>
               ))}
             </div>
-            <div style={{ padding: '10px 12px', borderTop: '1px solid rgba(249,115,22,0.15)', display: 'flex', gap: 8 }}>
+            <div style={{ padding: '10px 12px', borderTop: '1px solid rgba(217,70,239,0.15)', display: 'flex', gap: 8 }}>
               <input value={input} onChange={e => setInput(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && send()}
                 placeholder="Ask about your campaign…"
-                style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(249,115,22,0.2)',
+                style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(217,70,239,0.2)',
                   borderRadius: 8, padding: '6px 10px', fontSize: 12, color: 'var(--ink-1)', outline: 'none' }} />
               <button onClick={send}
-                style={{ background: 'linear-gradient(135deg,#f97316,#ea580c)', border: 'none', borderRadius: 8, padding: '6px 12px', fontSize: 12, color: '#fff', cursor: 'pointer' }}>→</button>
+                style={{ background: 'linear-gradient(135deg,#c026d3,#d946ef)', border: 'none', borderRadius: 8, padding: '6px 12px', fontSize: 12, color: '#fff', cursor: 'pointer' }}>→</button>
             </div>
           </motion.div>
         )}
@@ -263,16 +263,15 @@ export default function HomePage() {
                 color: 'var(--ink-1)',
                 marginBottom: '1.1rem',
               }}>
-                Launch a full marketing campaign in{' '}
+                Build campaigns that{' '}
                 <span style={{
-                  background: 'linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fbbf24 100%)',
+                  background: 'linear-gradient(135deg, #c026d3 0%, #d946ef 50%, #e879f9 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                 }}>
-                  10 minutes
+                  run on AI
                 </span>
-                {' '}— strategy, copy, and emails all done by AI.
               </h1>
 
               <p style={{
@@ -282,7 +281,7 @@ export default function HomePage() {
                 marginBottom: '1.2rem',
                 maxWidth: 440,
               }}>
-                Tell AI your product and target customer — get a complete campaign: ads, emails, landing page copy, social posts.
+                Audience → Message → Channels → Launch. Build a full multi-channel campaign in minutes — AI writes the copy, you review and send.
               </p>
 
               {/* Output chips */}
@@ -306,8 +305,8 @@ export default function HomePage() {
                     <span style={{
                       width: 36, height: 36,
                       borderRadius: 9,
-                      background: 'rgba(249,115,22,0.10)',
-                      border: '1px solid rgba(249,115,22,0.18)',
+                      background: 'rgba(217,70,239,0.10)',
+                      border: '1px solid rgba(217,70,239,0.18)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0,
                       color: 'var(--forge)',
@@ -398,8 +397,8 @@ export default function HomePage() {
                             style={{
                               display: 'flex', alignItems: 'center', gap: 5,
                               padding: '6px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600, cursor: 'pointer',
-                              border: `1px solid ${active ? 'rgba(249,115,22,0.7)' : 'var(--border-s)'}`,
-                              background: active ? 'rgba(249,115,22,0.12)' : 'rgba(255,255,255,0.03)',
+                              border: `1px solid ${active ? 'rgba(217,70,239,0.7)' : 'var(--border-s)'}`,
+                              background: active ? 'rgba(217,70,239,0.12)' : 'rgba(255,255,255,0.03)',
                               color: active ? 'var(--forge)' : 'var(--ink-3)',
                               transition: 'all 0.15s ease',
                             }}>

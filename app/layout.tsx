@@ -4,17 +4,24 @@ import Script from 'next/script'
 import FloatingChatWrapper from '@/components/FloatingChatWrapper'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://agencyos.vercel.app'),
-  title: 'AgencyOS — Run a Full AI Agency with Zero Employees',
-  description: 'One brief. Blog + podcast + faceless video + LinkedIn + emails + clips + client report — all in 90 seconds. Replace 6 tools with one. Free to start.',
-  keywords: ['AI content agency', 'zero employee agency', 'faceless video AI', 'AI podcast generator', 'content automation', 'agency automation'],
+  metadataBase: new URL('https://campaignforge.app'),
+  title: 'CampaignForge — AI Multi-Channel Campaign Builder',
+  description: 'Build full marketing campaigns in minutes. AI writes email sequences, social ads, and landing page copy across every channel. Free to start.',
+  keywords: ['AI campaign builder', 'multi-channel marketing', 'email marketing AI', 'social ads generator', 'marketing automation', 'AI copywriting'],
   openGraph: {
-    title: 'AgencyOS — Zero-Employee AI Content Agency',
-    description: 'One brief → 7 AI outputs in 90 seconds. Blog, podcast, video, LinkedIn, emails, clips, client report.',
+    title: 'CampaignForge — AI Multi-Channel Campaign Builder',
+    description: 'Audience → Message → Channels → Launch. Build a full multi-channel campaign in minutes — AI writes the copy, you review and send.',
     type: 'website',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CampaignForge — AI Multi-Channel Campaign Builder',
+    description: 'Build full marketing campaigns in minutes with AI.',
+    images: ['/og.png'],
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>",
   },
 }
 
@@ -22,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-REPLACE_WITH_PUBLISHER_ID" />
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -29,9 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "AgencyOS",
-              "description": "AI-powered full-stack content agency — blog, podcast, video, social, email from one brief",
+              "name": "CampaignForge",
+              "description": "AI-powered multi-channel campaign builder — email, social ads, and landing page copy from one brief",
               "applicationCategory": "MarketingApplication",
+              "url": "https://campaignforge.app",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
@@ -53,10 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           alignItems: 'center',
           padding: '0 24px',
           justifyContent: 'space-between',
-          background: 'rgba(5,5,9,0.85)',
+          background: 'rgba(15,6,23,0.85)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
+          borderBottom: '1px solid rgba(217,70,239,0.10)',
         }}>
           <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <span className="logo-mark" aria-hidden>
@@ -71,15 +80,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               letterSpacing: '-0.03em',
               color: 'var(--ink-1)',
             }}>
-              Agency<span style={{ color: 'var(--aos)' }}>OS</span>
+              Campaign<span style={{ color: 'var(--forge)' }}>Forge</span>
             </span>
           </a>
 
           <nav style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <a href="#outputs" className="nav-link">Outputs</a>
             <a href="#how" className="nav-link">How it works</a>
             <a href="#pricing" className="nav-link">Pricing</a>
-            <a href="#pricing" className="btn-aos" style={{ padding: '8px 18px', fontSize: 13 }}>
+            <a href="#pricing" className="btn-forge" style={{ padding: '8px 18px', fontSize: 13, width: 'auto' }}>
               Start free
             </a>
           </nav>
@@ -88,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main style={{ position: 'relative', zIndex: 10 }}>
           {children}
         </main>
-        <Script defer data-site="agencyos.vercel.app" src="http://31.97.56.148:3098/t.js" strategy="afterInteractive" />
+        <Script defer data-site="campaignforge.app" src="http://31.97.56.148:3098/t.js" strategy="afterInteractive" />
         <FloatingChatWrapper />
       </body>
     </html>
