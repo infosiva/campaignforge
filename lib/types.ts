@@ -39,13 +39,13 @@ export interface ShortClips {
   captions: string[]
 }
 
-export interface ClientReport {
+export interface CampaignReport {
   executiveSummary: string
   contentCalendar: { day: string; format: string; title: string }[]
   nextSteps: string[]
 }
 
-export interface AgencyResult {
+export interface CampaignResult {
   id: string
   brief: ContentBrief
   blog: BlogPost
@@ -54,6 +54,6 @@ export interface AgencyResult {
   emails: EmailSequence
   linkedin: LinkedInPosts
   clips: ShortClips
-  report: ClientReport
+  report: CampaignReport
   createdAt: string
 }

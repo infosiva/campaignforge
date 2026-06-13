@@ -1,5 +1,5 @@
 import Groq from 'groq-sdk'
-import { ContentBrief, AgencyResult, BlogPost, PodcastEpisode, VideoStoryboard, EmailSequence, LinkedInPosts, ShortClips, ClientReport } from './types'
+import { ContentBrief, CampaignResult, BlogPost, PodcastEpisode, VideoStoryboard, EmailSequence, LinkedInPosts, ShortClips, CampaignReport } from './types'
 import { randomUUID } from 'crypto'
 
 let _groq: Groq | null = null
@@ -117,9 +117,9 @@ Return JSON:
   return parseJSON<ShortClips>(await ask(prompt, sys, 1000), { captions: [] })
 }
 
-async function generateReport(b: ContentBrief): Promise<ClientReport> {
-  const sys = 'You are a content strategist writing client reports. Return ONLY valid JSON, no markdown.'
-  const prompt = `Write a client content report for "${b.brand}" campaign on "${b.topic}" for "${b.audience}".
+async function generateReport(b: ContentBrief): Promise<CampaignReport> {
+  const sys = 'You are a campaign strategist writing campaign plans. Return ONLY valid JSON, no markdown.'
+  const prompt = `Write a campaign content plan for "${b.brand}" campaign on "${b.topic}" for "${b.audience}".
 Return JSON:
 {
   "executiveSummary": "120-word exec summary of the content strategy and expected outcomes",
@@ -133,7 +133,7 @@ Return JSON:
   ],
   "nextSteps": ["Step 1", "Step 2", "Step 3", "Step 4"]
 }`
-  return parseJSON<ClientReport>(await ask(prompt, sys, 1500), { executiveSummary: '', contentCalendar: [], nextSteps: [] })
+  return parseJSON<CampaignReport>(await ask(prompt, sys, 1500), { executiveSummary: '', contentCalendar: [], nextSteps: [] })
 }
 
 function channelNote(b: ContentBrief): string {
@@ -143,7 +143,7 @@ function channelNote(b: ContentBrief): string {
   return ` Focus content for these selected channels: ${selected}.`
 }
 
-export async function generateAgencyContent(brief: ContentBrief): Promise<AgencyResult> {
+export async function generateCampaign(brief: ContentBrief): Promise<CampaignResult> {
   const note = channelNote(brief)
   if (note) {
     brief = { ...brief, topic: brief.topic + note }
