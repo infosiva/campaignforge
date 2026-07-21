@@ -99,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Script defer data-site="campaignforge.app" src="http://31.97.56.148:3098/t.js" strategy="afterInteractive" />
         <FloatingChatWrapper />
-        <FeedbackWidget siteName="CampaignForge" />
+        <FeedbackWidget siteName="CampaignForge" position="left" />
       </body>
     </html>
   )
