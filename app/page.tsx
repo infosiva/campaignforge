@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { MagneticButton } from '@infosiva/shared-ui/modern'
 import { Mail, Monitor, Radio, ArrowRight, Loader2, CheckCircle2, MessageSquare, FileText, Smartphone, History } from 'lucide-react'
 
 // ── Channel options ──────────────────────────────────────────
@@ -434,7 +435,7 @@ export default function HomePage() {
                   </AnimatePresence>
 
                   <div style={{ marginTop: 2 }}>
-                    <button type="submit" disabled={!valid || loading} className="btn-forge">
+                    <MagneticButton type="submit" disabled={!valid || loading} className="btn-forge">
                       {loading ? (
                         <>
                           <Loader2 size={15} className="animate-spin" />
@@ -446,7 +447,7 @@ export default function HomePage() {
                           <ArrowRight size={15} />
                         </>
                       )}
-                    </button>
+                    </MagneticButton>
                   </div>
 
                   {/* Step progress */}
