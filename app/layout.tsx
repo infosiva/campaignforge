@@ -3,6 +3,8 @@ import './globals.css'
 import Script from 'next/script'
 import FloatingChatWrapper from '@/components/FloatingChatWrapper'
 import { getSiteFlags } from '@/lib/flags'
+import { loadSiteTheme, buildThemeStyleTag, buildGa4Snippet } from '@/lib/theme-loader'
+import Logo from '@/components/Logo'
 import FeedbackWidget from '@/components/FeedbackWidget'
 
 import { MotionProvider } from "@infosiva/shared-ui/modern";
@@ -24,15 +26,23 @@ export const metadata: Metadata = {
     images: ['/og.png'],
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>",
+    icon: '/icon.svg',
   },
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const flags = await getSiteFlags('campaignforge')
+  const theme = await loadSiteTheme('campaignforge')
+  const themeCss = buildThemeStyleTag(theme)
+  const ga4 = buildGa4Snippet(theme)
   return (
     <html lang="en">
       <head>
+        {themeCss && <style dangerouslySetInnerHTML={{ __html: themeCss }} />}
+        {ga4 && <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${theme?.analytics?.ga4Id}`} strategy="afterInteractive" />
+          <Script id="ga4-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: ga4 }} />
+        </>}
         <meta name="google-adsense-account" content="ca-pub-4237294630161176" />
         <Script
                   async
@@ -72,32 +82,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           alignItems: 'center',
           padding: '0 24px',
           justifyContent: 'space-between',
-          background: 'rgba(15,6,23,0.85)',
+          background: 'rgba(11,16,32,0.85)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(217,70,239,0.10)',
+          borderBottom: '1px solid rgba(210,106,240,0.10)',
         }}>
-          <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <span className="logo-mark" aria-hidden>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </span>
-            <span style={{
-              fontFamily: "'Outfit', system-ui, sans-serif",
-              fontWeight: 800,
-              fontSize: 16,
-              letterSpacing: '-0.03em',
-              color: 'var(--ink-1)',
-            }}>
-              Campaign<span style={{ color: 'var(--forge)' }}>Forge</span>
-            </span>
-          </a>
+          <a href="/" aria-label="CampaignForge home" style={{ textDecoration: 'none' }}><Logo /></a>
 
           <nav style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <a href="#how" className="nav-link">How it works</a>
-            <a href="#pricing" className="nav-link">Pricing</a>
-            <a href="#pricing" className="btn-forge" style={{ padding: '8px 18px', fontSize: 13, width: 'auto' }}>
+                        <a href="#brief" className="btn-forge" style={{ padding: '8px 18px', fontSize: 13, width: 'auto' }}>
               Start free
             </a>
           </nav>
@@ -106,7 +100,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main style={{ position: 'relative', zIndex: 10 }}>
           <MotionProvider>{children}</MotionProvider>
         </main>
-        <Script defer data-site="campaignforge.app" src="http://31.97.56.148:3098/t.js" strategy="afterInteractive" />
         {flags.chatbot && <FloatingChatWrapper />}
         <FeedbackWidget siteName="CampaignForge" position="left" />
       </body>
