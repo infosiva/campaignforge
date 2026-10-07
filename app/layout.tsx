@@ -4,6 +4,7 @@ import Script from 'next/script'
 import FloatingChatWrapper from '@/components/FloatingChatWrapper'
 import { getSiteFlags } from '@/lib/flags'
 import { loadSiteTheme, buildThemeStyleTag, buildGa4Snippet } from '@/lib/theme-loader'
+import { AnimatedBg } from '@/components/AnimatedBg'
 import Logo from '@/components/Logo'
 import FeedbackWidget from '@/components/FeedbackWidget'
 
@@ -71,6 +72,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body style={{ minHeight: '100svh', overscrollBehavior: 'none' }}>
+        <AnimatedBg theme={theme} fallback="none" />
 
         {/* Sticky glass nav */}
         <header style={{
