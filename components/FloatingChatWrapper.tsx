@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const ACCENT = '#6366f1'
-const ACCENT_RGB = '99,102,241'
-const ACCENT_DARK = '#4f46e5'
-const BG = 'rgba(6,6,16,0.97)'
+const ACCENT = '#d26af0'
+const ACCENT_RGB = '210,106,240'
+const ACCENT_DARK = '#c026d3'
+const BG = 'rgba(11,16,32,0.97)'
 const BOTTOM_OFFSET = 84
 
 export default function FloatingChatWrapper() {

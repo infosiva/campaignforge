@@ -14,10 +14,10 @@ export default function PrivacyPage() {
       <p>We use Vercel for hosting and Supabase for data storage. These services have their own privacy policies.</p>
 
       <h2 style={{ fontSize: 20, fontWeight: 700, marginTop: 32, color: '#f5f0ff' }}>Your rights</h2>
-      <p>You can request deletion of your account and data at any time by emailing <a href="mailto:hello@campaignforge.app" style={{ color: '#d946ef' }}>hello@campaignforge.app</a>.</p>
+      <p>You can request deletion of your account and data at any time by emailing <a href="mailto:hello@campaignforge.app" style={{ color: '#d26af0' }}>hello@campaignforge.app</a>.</p>
 
       <h2 style={{ fontSize: 20, fontWeight: 700, marginTop: 32, color: '#f5f0ff' }}>Contact</h2>
-      <p>Questions? Email <a href="mailto:hello@campaignforge.app" style={{ color: '#d946ef' }}>hello@campaignforge.app</a></p>
+      <p>Questions? Email <a href="mailto:hello@campaignforge.app" style={{ color: '#d26af0' }}>hello@campaignforge.app</a></p>
     </main>
   )
 }
