@@ -213,6 +213,7 @@ body {
   transition: color 150ms;
 }
 .nav-link:hover { color: var(--ink-1); }
+@media (max-width: 480px) { .nav-how { display: none !important; } }
 
 /* ── Tone pills ── */
 .tone-pill {

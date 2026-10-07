@@ -91,9 +91,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         }}>
           <a href="/" aria-label="CampaignForge home" style={{ textDecoration: 'none' }}><Logo /></a>
 
-          <nav style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <a href="#how" className="nav-link">How it works</a>
-                        <a href="#brief" className="btn-forge" style={{ padding: '8px 18px', fontSize: 13, width: 'auto' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+            <a href="#how" className="nav-link nav-how" style={{ whiteSpace: 'nowrap', minHeight: 44, display: 'inline-flex', alignItems: 'center', padding: '0 6px' }}>How it works</a>
+                        <a href="#brief" className="btn-forge" style={{ padding: '0 16px', minHeight: 44, display: 'inline-flex', alignItems: 'center', whiteSpace: 'nowrap', fontSize: 13, width: 'auto' }}>
               Start free
             </a>
           </nav>
